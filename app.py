@@ -63,7 +63,7 @@ border: none !important;
         padding: 1em;'''
 
 # Streamlit网页标题
-st.markdown(f'<h1 style="text-align: center; font-size: 25px; color: white; background: rgba(248,192,29); border-radius: .5rem; margin-bottom: 5px;{s}">Survival to discharge Prediction</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="text-align: center; font-size: 25px; color: white; background: rgba(248,192,29); border-radius: .5rem; margin-bottom: 15px;{s}">Survival to discharge Prediction</h1>', unsafe_allow_html=True)
 #st.title('Survival to discharge Prediction')
 
 #st.header('Input Features')
