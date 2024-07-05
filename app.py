@@ -25,8 +25,45 @@ feature_cols = [ "Age",
     "C-reaction protein",
     "hs-TNI",'LDH']
 
+st.markdown('''<style>
+    [data-testid="stHeader"] {
+        background: transparent;
+    }
+    [data-testid="block-container"] {
+        padding-bottom: 40px;
+        padding-top: 40px;
+    }
+    .main {
+        background-color: #f5f5f5d4;
+    }
+    [data-testid="stTextInput"] input {
+        border: none !important;
+        -webkit-box-shadow: inset 5px 5px 5px rgba(0, 0, 0, .2), inset -5px -5px 5px #fff;
+        box-shadow: inset 5px 5px 5px rgba(0, 0, 0, .2), inset -5px -5px 5px #fff;
+        //border-radius: 20px !important;
+        //padding: 2em
+    }
+    [data-testid="stTextInput"],
+    [data-testid="stExpander"] {
+        border: none !important;
+        -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, .2), -5px -5px 5px #fff;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, .2), -5px -5px 5px #fff;
+        border-radius: 0.5rem !important;
+        //text-align: center;
+        padding: 1em
+    }
+    </style>''', unsafe_allow_html=True)
+    
+s = '''
+border: none !important;
+        -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, .2), -5px -5px 5px #fff;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, .2), -5px -5px 5px #fff;
+        border-radius: 0.5rem;
+        //text-align: center;
+        padding: 1em;'''
+
 # Streamlit网页标题
-st.markdown('<h1 style="text-align: center; font-size: 25px; color: white; background: rgba(248,192,29); border-radius: .5rem; margin-bottom: 5px;">Survival to discharge Prediction</h1>', unsafe_allow_html=True)
+st.markdown(f'<h1 style="text-align: center; font-size: 25px; color: white; background: rgba(248,192,29); border-radius: .5rem; margin-bottom: 5px;{s}">Survival to discharge Prediction</h1>', unsafe_allow_html=True)
 #st.title('Survival to discharge Prediction')
 
 #st.header('Input Features')
