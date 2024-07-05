@@ -54,7 +54,7 @@ st.markdown("""
 
 col = expander.columns(5)
 # 当用户点击“Predict”按钮时执行预测
-if col[2].button('Predict'):
+if col[2].button('Predict', use_container_width=True):
     prediction = clf_loaded.predict(input_data)
     prediction_proba = clf_loaded.predict_proba(input_data)
 
