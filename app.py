@@ -26,15 +26,17 @@ feature_cols = [ "Age",
     "hs-TNI",'LDH']
 
 # Streamlit网页标题
-st.title('Death Risk Prediction')
+st.markdown('<h1 style="text-align: center; font-size: 25px; color: white; background: rgba(248,192,29); border-radius: .5rem; margin-bottom: 5px;">Survival to discharge Prediction</h1>', unsafe_allow_html=True)
+#st.title('Survival to discharge Prediction')
 
-st.header('Input Features')
+#st.header('Input Features')
+expander = st.expander("**Input Features**", True)
 
 # 收集输入特征
 input_features = []
 for feature in feature_cols:
     # 修改number_input的format参数来避免自动四舍五入，并允许多于默认小数位数的输入
-    value = st.number_input(feature, format="%.6f", step=0.000001)
+    value = expander.number_input(feature, format="%.6f", step=0.000001)
     input_features.append(value)
 
 # 将收集到的数据转换为适用于模型的格式
@@ -49,17 +51,24 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
+
+col = expander.columns(5)
 # 当用户点击“Predict”按钮时执行预测
-if st.button('Predict'):
+if col[2].button('Predict'):
     prediction = clf_loaded.predict(input_data)
     prediction_proba = clf_loaded.predict_proba(input_data)
 
     # 显示预测结果
-    st.subheader('Prediction Results:')
-    predicted_class = prediction[0]
-    # 若要显示特定类别（例如正类）的概率，可以选择该类别的概率
-    predicted_proba_positive_class = prediction_proba[0][1]  # 假设正类为第二个类别
-    percentage_proba=predicted_proba_positive_class* 100
-    # 更改显示的概率值为特定类别的概率
-    prob_text = f'Based feature values,predicted possibility of survival to discharge is: {percentage_proba:.4f}%'
-    st.markdown(f'<p class="custom-font">{prob_text}</p>', unsafe_allow_html=True)
+    #st.subheader('Prediction Results:')
+    with st.expander("**Prediction Results:**", True):
+        predicted_class = prediction[0]
+        # 若要显示特定类别（例如正类）的概率，可以选择该类别的概率
+        predicted_proba_positive_class = prediction_proba[0][1]  # 假设正类为第二个类别
+        percentage_proba=predicted_proba_positive_class* 100
+        # 更改显示的概率值为特定类别的概率
+        prob_text = f'Based feature values,predicted possibility of survival to discharge is: {percentage_proba:.4f}%'
+        #st.markdown(f'<p class="custom-font">{prob_text}</p>', unsafe_allow_html=True)
+        st.info("**"+prob_text+"**")
+else:
+    with st.expander("**Prediction Results:**", True):
+        st.info("**Not start predict, you can click 'predict' button to start predict!**")
