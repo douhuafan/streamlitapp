@@ -12,7 +12,6 @@ clf_loaded = joblib.load(model_path)
 
 # 定义特征
 feature_cols = [ "Age",
-
     "Coronary hypoperfusion",
     "Cardiogenic shock",
     "D-dimer ",
@@ -62,5 +61,5 @@ if st.button('Predict'):
     predicted_proba_positive_class = prediction_proba[0][1]  # 假设正类为第二个类别
     percentage_proba=predicted_proba_positive_class* 100
     # 更改显示的概率值为特定类别的概率
-    prob_text = f'Based feature values,predicted possibility of death is: {percentage_proba:.4f}%'
+    prob_text = f'Based feature values,predicted possibility of survival to discharge is: {percentage_proba:.4f}%'
     st.markdown(f'<p class="custom-font">{prob_text}</p>', unsafe_allow_html=True)
