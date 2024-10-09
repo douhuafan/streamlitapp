@@ -7,10 +7,7 @@ import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 from filesplit.merge import Merge
 
-if not os.path.exists('extra_trees_classifier4.joblib'):
-    Merge("model", "/", "extra_trees_classifier4.joblib")
-else:
-    pass
+ Merge("model", "/", "extra_trees_classifier4.joblib")
 
 # 加载预训练模型
 # current_dir = os.path.dirname(os.path.abspath(__file__))
