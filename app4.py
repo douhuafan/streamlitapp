@@ -22,7 +22,7 @@ model_path = os.path.join(path, 'extra_trees_classifier4.joblib')
 try:
     clf_loaded = joblib.load(model_path)
 except Exception as e:
-    st.info("文件已存在")
+    st.info("文件导入出错")
     st.error(f"Error loading model: {e}")
 
 feature_cols = ['Age', 'Cardiogenic shock', 'Coronary hypoperfusion', 'hsTnI',
