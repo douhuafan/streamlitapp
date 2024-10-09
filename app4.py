@@ -5,13 +5,20 @@ import os
 import shap
 import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
-from filesplit.merge import Merge
 
-Merge("model", "/", "extra_trees_classifier4.joblib")
+path = os.getcwd().replace("\\", "/")
+
+if os.path.exists(path+"/extra_trees_classifier4.joblib"):
+    pass
+else:
+    from filesplit.merge import Merge
+
+    merge = Merge(inputdir = path+"/model", outputdir=path, outputfilename = "extra_trees_classifier4.joblib")
+    merge.merge()
 
 # 加载预训练模型
 # current_dir = os.path.dirname(os.path.abspath(__file__))
-# model_path = os.path.join(path, 'extra_trees_classifier4.joblib')
+# model_path = os.path.join(path, path+'/extra_trees_classifier4.joblib')
 
 # 处理模型加载异常
 try:
