@@ -12,7 +12,7 @@ path = os.getcwd().replace("\\", "/")
 if os.path.exists(path+'/extra_trees_classifier4.joblib'):
     merge = Merge(path+"/model", path, 'extra_trees_classifier4.joblib')
 else:
-    st.info("文件已存在")
+    pass
 
 # 加载预训练模型
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -22,6 +22,7 @@ model_path = os.path.join(path, 'extra_trees_classifier4.joblib')
 try:
     clf_loaded = joblib.load(model_path)
 except Exception as e:
+    st.info("文件已存在")
     st.error(f"Error loading model: {e}")
 
 feature_cols = ['Age', 'Cardiogenic shock', 'Coronary hypoperfusion', 'hsTnI',
