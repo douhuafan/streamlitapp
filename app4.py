@@ -7,9 +7,11 @@ import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 from filesplit.merge import Merge
 
-path = os.getcwd().replace("\\", "/")
-
-Merge(path+"/model", path, "extra_trees_classifier4.joblib")
+if not os.path.exists('extra_trees_classifier4.joblib'):
+    Merge("model", "/", "extra_trees_classifier4.joblib")
+    st.info("文件不存在")
+else:
+    pass
 
 # 加载预训练模型
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -17,7 +19,7 @@ model_path = os.path.join(path, 'extra_trees_classifier4.joblib')
 
 # 处理模型加载异常
 try:
-    clf_loaded = joblib.load(path+'/extra_trees_classifier4.joblib')
+    clf_loaded = joblib.load('extra_trees_classifier4.joblib')
 except Exception as e:
     st.error(f"Error loading model: {e}")
 
