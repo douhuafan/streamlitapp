@@ -8,12 +8,11 @@ import streamlit.components.v1 as components
 from filesplit.merge import Merge
 
 path = os.getcwd().replace("\\", "/")
-st.info(path)
 
 if os.path.exists(path+'/extra_trees_classifier4.joblib'):
     merge = Merge(path+"/model", "", "extra_trees_classifier4.joblib")
 else:
-    pass
+    st.info(path)
 
 # 加载预训练模型
 current_dir = os.path.dirname(os.path.abspath(__file__))
