@@ -10,7 +10,7 @@ from filesplit.merge import Merge
 path = os.getcwd().replace("\\", "/")
 
 if not os.path.exists(path+'/extra_trees_classifier4.joblib'):
-    merge = Merge(path+"/model", "", "extra_trees_classifier4.joblib")
+    merge = Merge(path+"/model", path, "extra_trees_classifier4.joblib")
 else:
     pass
 
@@ -20,7 +20,7 @@ model_path = os.path.join(path, 'extra_trees_classifier4.joblib')
 
 # 处理模型加载异常
 try:
-    clf_loaded = joblib.load("extra_trees_classifier4.joblib")
+    clf_loaded = joblib.load(path+'/extra_trees_classifier4.joblib')
 except Exception as e:
     st.error(f"Error loading model: {e}")
 
