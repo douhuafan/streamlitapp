@@ -10,7 +10,7 @@ from filesplit.merge import Merge
 path = os.getcwd().replace("\\", "/")
 
 if os.path.exists(path+'/extra_trees_classifier4.joblib'):
-    merge = Merge(path+"/model", path, 'extra_trees_classifier4.joblib')
+    merge = Merge(path+"/model", '', 'extra_trees_classifier4.joblib')
 else:
     pass
 
