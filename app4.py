@@ -95,3 +95,4 @@ if st.button('Predict'):
     fig, ax = plt.subplots()
     shap.waterfall_plot(explanation)
     st.pyplot(fig)
+    plt.clf()
