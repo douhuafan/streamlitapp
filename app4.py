@@ -16,7 +16,7 @@ else:
 
 # 加载预训练模型
 current_dir = os.path.dirname(os.path.abspath(__file__))
-model_path = os.path.join(current_dir, 'extra_trees_classifier4.joblib')
+model_path = os.path.join(path, 'extra_trees_classifier4.joblib')
 
 # 处理模型加载异常
 try:
