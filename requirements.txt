@@ -3,3 +3,5 @@ joblib
 streamlit
 scikit-learn
 lightgbm
+shap
+matplotlib
