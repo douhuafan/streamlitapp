@@ -1,0 +1,4 @@
+filename,filesize,header
+extra_trees_classifier4_1.joblib,20000000,False
+extra_trees_classifier4_2.joblib,20000000,False
+extra_trees_classifier4_3.joblib,7239657,False
