@@ -9,10 +9,10 @@ from filesplit.merge import Merge
 
 path = os.getcwd().replace("\\", "/")
 
-if os.path.exists(path+'/extra_trees_classifier4.joblib'):
+if not os.path.exists(path+'/extra_trees_classifier4.joblib'):
     merge = Merge(path+"/model", "", "extra_trees_classifier4.joblib")
 else:
-    st.info(path)
+    pass
 
 # 加载预训练模型
 current_dir = os.path.dirname(os.path.abspath(__file__))
