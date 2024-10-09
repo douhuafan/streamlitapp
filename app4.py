@@ -5,6 +5,14 @@ import os
 import shap
 import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
+from filesplit.merge import Merge
+
+path = os.getcwd().replace("\\", "/")
+
+if os.path.exists(path+'/extra_trees_classifier4.joblib'):
+    merge = Merge(path+"/model", path, 'extra_trees_classifier4.joblib')
+else:
+    pass
 
 # 加载预训练模型
 current_dir = os.path.dirname(os.path.abspath(__file__))
