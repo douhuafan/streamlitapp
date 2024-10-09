@@ -9,7 +9,6 @@ from filesplit.merge import Merge
 
 if not os.path.exists('extra_trees_classifier4.joblib'):
     Merge("model", "/", "extra_trees_classifier4.joblib")
-    st.info("文件不存在")
 else:
     pass
 
@@ -31,7 +30,7 @@ feature_cols = ['Age', 'Cardiogenic shock', 'Coronary hypoperfusion', 'hsTnI',
 st.title('Survival to Discharge Prediction')
 
 st.header('Input Features')
-st.set_option('deprecation.showPyplotGlobalUse', False)
+#st.set_option('deprecation.showPyplotGlobalUse', False)
 
 input_features = []
 for feature in feature_cols:
@@ -92,4 +91,3 @@ if st.button('Predict'):
     fig, ax = plt.subplots()
     shap.waterfall_plot(explanation)
     st.pyplot(fig)
-    plt.clf()
