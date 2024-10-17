@@ -22,7 +22,7 @@ else:
 
 # 处理模型加载异常
 try:
-    clf_loaded = joblib.load(model_path)
+    clf_loaded = joblib.load('./extra_trees_classifier5.joblib')
 except Exception as e:
     st.error(f"Error loading model: {e}")
 
@@ -33,7 +33,7 @@ feature_cols = ['Age','Cardiogenic shock', 'Coronary hypoperfusion','Systolic bl
 st.title('Survival to Discharge Prediction')
 
 st.header('Input Features')
-st.set_option('deprecation.showPyplotGlobalUse', False)
+#st.set_option('deprecation.showPyplotGlobalUse', False)
 
 input_features = []
 for feature in feature_cols:
