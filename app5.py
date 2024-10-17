@@ -10,6 +10,16 @@ import streamlit.components.v1 as components
 current_dir = os.path.dirname(os.path.abspath(__file__))
 model_path = os.path.join(current_dir, 'extra_trees_classifier5.joblib')
 
+path = os.getcwd().replace("\\", "/")
+
+if os.path.exists(path+"/extra_trees_classifier5.joblib"):
+    pass
+else:
+    from filesplit.merge import Merge
+
+    merge = Merge(inputdir = path+"/model5", outputdir=path, outputfilename = "extra_trees_classifier5.joblib")
+    merge.merge()
+
 # 处理模型加载异常
 try:
     clf_loaded = joblib.load(model_path)
